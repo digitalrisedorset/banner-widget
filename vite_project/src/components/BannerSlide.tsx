@@ -8,7 +8,7 @@ import {
     ctaBase
 } from "./BannerSlide/style";
 
-export const BannerSlide = ({ slide, isActive }: BannerSlideProps) => {
+export const BannerSlide = ({ slide, isActive, tileMode }: BannerSlideProps) => {
     const { images, title, subtitle, cta } = slide;
 
     // Breakpoints
@@ -23,19 +23,36 @@ export const BannerSlide = ({ slide, isActive }: BannerSlideProps) => {
     const src = chosen?.src;
     const focal = chosen?.focalPoint || { x: 0.5, y: 0.5 };
 
+    const wrapperStyle: React.CSSProperties = tileMode
+        ? {
+            position: "absolute",
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0
+        }
+        : {
+            ...slideWrapper,
+            ...(isActive ? slideActive : {})
+        };
+
     return (
-        <div
-            style={{
-                ...slideWrapper,
-                ...(isActive ? slideActive : {})
-            }}
-        >
+        <div style={wrapperStyle}>
             <img
                 src={src}
                 alt={title?.text || ""}
                 style={{
-                    ...slideImageBase,
-                    objectPosition: `${focal.x * 100}% ${focal.y * 100}%`
+                    ...(tileMode
+                        ? {
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            objectPosition: `${focal.x * 100}% ${focal.y * 100}%`
+                        }
+                        : {
+                            ...slideImageBase,
+                            objectPosition: `${focal.x * 100}% ${focal.y * 100}%`
+                        })
                 }}
             />
 

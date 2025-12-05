@@ -1,14 +1,12 @@
 import {useEffect, useState} from "react";
 import {type BannerMode, defaultBannerMode} from "./components/Types.ts";
-import {BannerSlide} from "./components/BannerSlide.tsx";
-import {NavigationDots} from "./components/NavigationDots.tsx";
-import {NavigationArrows} from "./components/NavigationArrows.tsx";
+import {BannerSlider} from "./components/BannerSlider.tsx";
+import {BannerStatic} from "./components/BannerStatic.tsx";
 
 export const BannerWidget = () => {
+    console.log('BannerWidget start', '')
     const [slides, setSlides] = useState<any[]>([]);
     const [mode, setMode] = useState<BannerMode>(defaultBannerMode);
-    //const [settings, setSettings] = useState<any>({});
-    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
         const container = document.getElementById("home-banner");
@@ -16,8 +14,6 @@ export const BannerWidget = () => {
 
         const rawData = container.getAttribute("data-banner");
         if (!rawData) return;
-
-        console.log("Banner raw data:", rawData);
 
         try {
             const parsed = JSON.parse(rawData);
@@ -41,47 +37,10 @@ export const BannerWidget = () => {
     if (isMobile) currentMode = mode.mobile;
     else if (isTablet) currentMode = mode.tablet;
 
-    const ratio = isMobile
-        ? aspectRatio.mobile || "3:4"
-        : isTablet
-            ? aspectRatio.tablet || "4:3"
-            : aspectRatio.desktop || "16:7";
+    if (currentMode === "slider") {
+        return <BannerSlider slides={slides} aspectRatio={aspectRatio} />;
+    }
 
-    const [w, h] = ratio.split(":").map(Number);
-    const paddingTop = (h / w) * 100;
-
-    return (
-        <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
-            <div style={{
-                position: "relative",
-                width: "100%",
-                paddingTop: paddingTop + "%"   // aspect ratio defines height
-            }}>
-                {slides.map((slide, i) => (
-                    <BannerSlide
-                        key={i}
-                        slide={slide}
-                        isActive={ currentMode === "slider" ? (i === currentIndex): (i==0) }
-                    />
-                ))}
-            </div>
-
-            {currentMode === "slider" && (
-                <>
-                    <NavigationDots
-                        current={currentIndex}
-                        total={slides.length}
-                        onChange={setCurrentIndex}
-                    />
-
-                    <NavigationArrows
-                        current={currentIndex}
-                        total={slides.length}
-                        onChange={setCurrentIndex}
-                    />
-                </>
-            )}
-        </div>
-    );
+    return <BannerStatic slides={slides} aspectRatio={aspectRatio} />;
 };
 

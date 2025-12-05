@@ -12,6 +12,7 @@ export interface BannerSliderProps {
 export interface BannerSlideProps {
     slide: any;              // fully typed later
     isActive: boolean;       // true = visible, false = hidden
+    tileMode: boolean
 }
 
 export type BannerModeValue = "static" | "slider" | "none";

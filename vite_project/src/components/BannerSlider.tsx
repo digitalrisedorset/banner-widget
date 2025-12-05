@@ -23,6 +23,7 @@ export const BannerSlider = ({ slides, aspectRatio }: BannerSliderProps) => {
                         key={i}
                         slide={slide}
                         isActive={i === currentIndex}
+                        tileMode={false}
                     />
                 ))}
             </div>
