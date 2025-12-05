@@ -1,0 +1,75 @@
+<body>
+<script type="module" src="./src/widget.ts"></script>
+
+<div id="home-banner"
+     data-banner='{
+          "slides": [
+            {
+              "title": {
+                "text": "Winter Jackets",
+                "size": "xl",
+                "color": "white",
+                "background": "dark-40",
+                "align": "center"
+              },
+              "subtitle": {
+                "text": "Warm, waterproof, and technical",
+                "size": "md",
+                "color": "white",
+                "background": "dark-20"
+              },
+              "cta": {
+                "label": "Shop Jackets",
+                "url": "/jackets",
+                "variant": "primary"
+              },
+              "images": {
+                "desktop": { "src": "/hero1-d.jpg", "focalPoint": { "x": 0.4, "y": 0.3 } },
+                "tablet": { "src": "/hero1-t.jpg" },
+                "mobile": { "src": "/hero1-m.jpg" }
+              }
+            },
+
+            {
+              "title": {
+                "text": "Thermal Layers",
+                "size": "xl",
+                "color": "white",
+                "background": "dark-40",
+                "align": "left"
+              },
+              "cta": {
+                "label": "Shop Layers",
+                "url": "/layers",
+                "variant": "secondary"
+              },
+              "images": {
+                "desktop": { "src": "/hero2-d.jpg" },
+                "mobile": { "src": "/hero2-m.jpg" }
+              }
+            },
+
+            {
+              "title": {
+                "text": "Waterproof Trousers",
+                "size": "xl",
+                "color": "white"
+              },
+              "cta": { "label": "See Range", "url": "/pants" },
+              "images": {
+                "desktop": { "src": "/hero3-d.jpg" },
+                "mobile": { "src": "/hero3-m.jpg" }
+              }
+            }
+          ],
+
+          "settings": {
+            "autoplay": true,
+            "autoplayDelay": 5000,
+            "transition": "fade",     // fade | slide
+            "controls": "arrows-dots" // arrows-only, dots-only, none, arrows-dots
+          }
+        }'>
+    <banner-widget></banner-widget>
+</div>
+</body>
