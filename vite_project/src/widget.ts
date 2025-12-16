@@ -1,9 +1,10 @@
 import { mountWidget } from "./mountWidget";
 
-class BannerWidget extends HTMLElement {
+class UspWidget extends HTMLElement {
     connectedCallback() {
+        console.log('mounted usp')
         mountWidget(this);
     }
 }
 
-customElements.define("banner-widget", BannerWidget);
+customElements.define("usp-widget", UspWidget);

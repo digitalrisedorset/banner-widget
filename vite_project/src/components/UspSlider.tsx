@@ -1,25 +1,20 @@
 import { useState } from "react";
-import { BannerSlide } from "./BannerSlide.tsx";
-import { NavigationDots } from "./NavigationDots.tsx";
 import { NavigationArrows } from "./NavigationArrows.tsx";
-import type {BannerSliderProps} from "./Types.ts";
+import type { UspSliderProps } from "./Types.ts";
+import { UspSlide } from "./UspSlide.tsx";
 
-export const BannerSlider = ({ slides, aspectRatio }: BannerSliderProps) => {
+export function UspSlider({ slides, config }: UspSliderProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const ratio = aspectRatio.desktop || "16:7";
+    const ratio = config.mode.desktop || "16:7";
     const [w, h] = ratio.split(":").map(Number);
     const paddingTop = (h / w) * 100;
 
     return (
-        <div style={{ position: "relative", width: "100%" }}>
-            <div style={{
-                position: "relative",
-                width: "100%",
-                paddingTop: paddingTop + "%"
-            }}>
+        <div className="uspSlider" style={{ height: config.height }}>
+            <div className="uspSlider__inner" style={{ paddingTop: `${paddingTop}%` }}>
                 {slides.map((slide, i) => (
-                    <BannerSlide
+                    <UspSlide
                         key={i}
                         slide={slide}
                         isActive={i === currentIndex}
@@ -28,12 +23,6 @@ export const BannerSlider = ({ slides, aspectRatio }: BannerSliderProps) => {
                 ))}
             </div>
 
-            <NavigationDots
-                current={currentIndex}
-                total={slides.length}
-                onChange={setCurrentIndex}
-            />
-
             <NavigationArrows
                 current={currentIndex}
                 total={slides.length}
@@ -41,4 +30,4 @@ export const BannerSlider = ({ slides, aspectRatio }: BannerSliderProps) => {
             />
         </div>
     );
-};
+}

@@ -1,75 +1,37 @@
 <body>
 <script type="module" src="./src/widget.ts"></script>
 
-<div id="home-banner"
-     data-banner='{
-          "slides": [
+<div id="home-usp"
+     data-usp='{
+        "slides": [
             {
-              "title": {
-                "text": "Winter Jackets",
-                "size": "xl",
-                "color": "white",
-                "background": "dark-40",
-                "align": "center"
-              },
-              "subtitle": {
-                "text": "Warm, waterproof, and technical",
-                "size": "md",
-                "color": "white",
-                "background": "dark-20"
-              },
-              "cta": {
-                "label": "Shop Jackets",
-                "url": "/jackets",
-                "variant": "primary"
-              },
-              "images": {
-                "desktop": { "src": "/hero1-d.jpg", "focalPoint": { "x": 0.4, "y": 0.3 } },
-                "tablet": { "src": "/hero1-t.jpg" },
-                "mobile": { "src": "/hero1-m.jpg" }
-              }
+                "text": "Over 20 years of experience",
+                "backgroundColor": "#143d1a",
+                "textColor": "#ffffff"
             },
-
             {
-              "title": {
-                "text": "Thermal Layers",
-                "size": "xl",
-                "color": "white",
-                "background": "dark-40",
-                "align": "left"
-              },
-              "cta": {
-                "label": "Shop Layers",
-                "url": "/layers",
-                "variant": "secondary"
-              },
-              "images": {
-                "desktop": { "src": "/hero2-d.jpg" },
-                "mobile": { "src": "/hero2-m.jpg" }
-              }
+                "text": "Local specialists you can trust",
+                "backgroundColor": "#ffe047",
+                "textColor": "#333333"
             },
-
             {
-              "title": {
-                "text": "Waterproof Trousers",
-                "size": "xl",
-                "color": "white"
-              },
-              "cta": { "label": "See Range", "url": "/pants" },
-              "images": {
-                "desktop": { "src": "/hero3-d.jpg" },
-                "mobile": { "src": "/hero3-m.jpg" }
-              }
+                "text": "Fully accredited & insured",
+                "backgroundColor": "#ff7a00",
+                "textColor": "#ffffff"
             }
-          ],
-
-          "settings": {
-            "autoplay": true,
-            "autoplayDelay": 5000,
-            "transition": "fade",     // fade | slide
-            "controls": "arrows-dots" // arrows-only, dots-only, none, arrows-dots
-          }
-        }'>
-    <banner-widget></banner-widget>
+        ],
+        "settings": {
+            "mode": {
+                "desktop": "static",
+                "tablet": "slider",
+                "mobile": "slider"
+            },
+            "height": "60px",
+            "backgroundColor": "#fff"
+        }
+     }'>
+    <usp-widget></usp-widget>
 </div>
+
+
 </body>

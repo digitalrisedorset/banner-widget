@@ -1,0 +1,27 @@
+.navigationArrows {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    pointer-events: none; /* Allow buttons to receive events, not container */
+}
+
+.arrowBtn {
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    pointer-events: auto;
+    transition: background 0.3s ease;
+}
+
+.arrowBtn:hover {
+    background: rgba(0, 0, 0, 0.6);
+}

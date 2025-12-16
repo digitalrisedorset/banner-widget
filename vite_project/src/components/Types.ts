@@ -4,27 +4,47 @@ export interface NavigationProps {
     onChange: (index: number) => void;
 }
 
-export interface BannerSliderProps {
-    slides: any[];
-    aspectRatio: BannerMode;
+export interface UspSliderProps {
+    slides:  UspSlide[];
+    config: UspConfig;
 }
 
-export interface BannerSlideProps {
-    slide: any;              // fully typed later
-    isActive: boolean;       // true = visible, false = hidden
+export interface UspStaticProps {
+    slides:  UspSlide[];
+    config: UspConfig;
+}
+
+export interface UspSlideProps {
+    slide: UspSlide;
+    isActive: boolean;
     tileMode: boolean
 }
 
-export type BannerModeValue = "static" | "slider" | "none";
-
-export interface BannerMode {
-    desktop: BannerModeValue;
-    tablet: BannerModeValue;
-    mobile: BannerModeValue;
+export interface UspSlide {
+    text: string,
+    backgroundColor: string,
+    textColor: string
 }
 
-export const defaultBannerMode: BannerMode = {
-    desktop: "static",
-    tablet: "slider",
-    mobile: "slider"
+export type UspModeValue = "static" | "slider" | "none";
+
+export interface UspConfig {
+    mode: UspMode;
+    height: string
+    backgroundColor?: string;
+}
+
+export interface UspMode {
+    desktop: UspModeValue;
+    tablet: UspModeValue;
+    mobile: UspModeValue;
+}
+
+export const defaultUspConfig: UspConfig = {
+    mode: {
+        desktop: "static",
+        tablet: "slider",
+        mobile: "slider"
+    },
+    height: "50px",
 };
