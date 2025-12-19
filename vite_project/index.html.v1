@@ -62,12 +62,11 @@
               }
             }
           ],
-
           "settings": {
             "autoplay": true,
             "autoplayDelay": 5000,
-            "transition": "fade",     // fade | slide
-            "controls": "arrows-dots" // arrows-only, dots-only, none, arrows-dots
+            "transition": "fade",
+            "controls": "arrows-dots"
           }
         }'>
     <banner-widget></banner-widget>

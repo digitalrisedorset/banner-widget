@@ -4,47 +4,63 @@ export interface NavigationProps {
     onChange: (index: number) => void;
 }
 
-export interface UspSliderProps {
-    slides:  UspSlide[];
-    config: UspConfig;
+export interface BannerSliderProps {
+    slides:  BannerSlide[];
+    config: BannerConfig;
 }
 
-export interface UspStaticProps {
-    slides:  UspSlide[];
-    config: UspConfig;
+export interface BannerStaticProps {
+    slides:  BannerSlide[];
+    config: BannerConfig;
 }
 
-export interface UspSlideProps {
-    slide: UspSlide;
+export interface BannerSlide {
+    image: {
+        src: string;
+        srcset?: string;
+        alt?: string;
+        focalPoint?: {
+            x: number; // 0 → far left, 1 → far right
+            y: number; // 0 → top, 1 → bottom
+        };
+    };
+    title?:BannerTitle;
+    subtitle?:string;
+    cta?:string;
+}
+
+export interface BannerTitle {
+    text: string;
+    size?: "sm" | "md" | "lg" | "xl" | "2xl";
+    color?: string;
+    background?: string;
+    align?: "left" | "center" | "right";
+}
+
+export interface BannerSlideProps {
+    slide: BannerSlide;
     isActive: boolean;
     tileMode: boolean
 }
 
-export interface UspSlide {
-    text: string,
-    backgroundColor: string,
-    textColor: string
-}
+export type BannerModeValue = "static" | "slider" | "none";
 
-export type UspModeValue = "static" | "slider" | "none";
-
-export interface UspConfig {
-    mode: UspMode;
+export interface BannerConfig {
+    mode: BannerMode;
     height: string
-    backgroundColor?: string;
 }
 
-export interface UspMode {
-    desktop: UspModeValue;
-    tablet: UspModeValue;
-    mobile: UspModeValue;
+export interface BannerMode {
+    desktop: BannerModeValue;
+    tablet: BannerModeValue;
+    mobile: BannerModeValue;
 }
 
-export const defaultUspConfig: UspConfig = {
+export const defaultBannerConfig: BannerConfig = {
     mode: {
         desktop: "static",
         tablet: "slider",
         mobile: "slider"
     },
-    height: "50px",
+    height: "400px"
 };

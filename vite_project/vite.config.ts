@@ -11,14 +11,14 @@ export default defineConfig({
     emptyOutDir: false,
     lib: {
       entry: "src/widget.ts",
-      name: "WidgetUsp",
-      fileName: "widget-usp",
+      name: "WidgetBanner",
+      fileName: "widget-banner",
       formats: ["iife"],
     },
     rollupOptions: {
       output: {
         inlineDynamicImports: true,
-        assetFileNames: "widget-usp.[ext]",
+        assetFileNames: "widget-banner.[ext]",
       },
     }
   }
